@@ -41,3 +41,7 @@ docker create --name <container-name> <image-name>
 ```
 docker stop <container-name>
 ```
+
+## References
+
+- [Microsoft Tutorial](https://docs.microsoft.com/pt-br/dotnet/core/docker/build-container?tabs=windows)
