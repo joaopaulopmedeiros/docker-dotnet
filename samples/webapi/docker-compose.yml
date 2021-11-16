@@ -7,4 +7,10 @@ services:
           SA_PASSWORD: "pass@123"
           MSSQL_PID: Express
         ports:
-          - "1433:1433"
+            - "1433:1433"
+    heroes-web-api:
+        build: .
+        ports:
+            - "8000:80"
+        depends_on:
+            - "ms-sql-server"
