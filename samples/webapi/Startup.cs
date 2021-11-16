@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using webapi.Contexts;
 using webapi.Controllers;
 using webapi.Repositories;
+using webapi.Seeds;
 
 namespace webapi
 {
@@ -30,7 +31,8 @@ namespace webapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<HeroContext>(options => {
+            services.AddDbContext<HeroContext>(options =>
+            {
                 options.UseSqlServer(Configuration["Database:Connection"]);
             });
 
@@ -64,6 +66,8 @@ namespace webapi
             {
                 endpoints.MapControllers();
             });
+
+            DbSeeder.Run(app);
         }
     }
 }
